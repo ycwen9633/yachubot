@@ -39,22 +39,24 @@ foreach ($client->parseEvents() as $event) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
                     $test_result = $keyword.$message['text'];
-                    // if (mb_strpos($message['text'], $keyword) !== false) {
-                    //     // $candidate = array(
-                    //     //     'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
-                    //     //     'title' => $item['gsx$title']['$t'],
-                    //     //     'text' => $item['gsx$title']['$t'],
-                    //     //     'actions' => array(
-                    //     //         array(
-                    //     //             'type' => 'uri',
-                    //     //             'label' => '查看詳情',
-                    //     //             'uri' => $item['gsx$url']['$t'],
-                    //     //             ),
-                    //     //         ),
-                    //     //     );
-                    //     $test_result = 'in';
-                    //     // array_push($result, $candidate);
-                    // }
+                    $keyword = iconv( "big5","UTF-8",  $keyword);
+                    $message['text'] = iconv( "big5","UTF-8",  $message['text']);
+                    if (mb_strpos($message['text'], $keyword, 0, 'UTF8') !== false) {
+                        // $candidate = array(
+                        //     'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
+                        //     'title' => $item['gsx$title']['$t'],
+                        //     'text' => $item['gsx$title']['$t'],
+                        //     'actions' => array(
+                        //         array(
+                        //             'type' => 'uri',
+                        //             'label' => '查看詳情',
+                        //             'uri' => $item['gsx$url']['$t'],
+                        //             ),
+                        //         ),
+                        //     );
+                        $test_result = 'in';
+                        // array_push($result, $candidate);
+                    }
                 }
                 // $test_result = $keywords[0];
             }

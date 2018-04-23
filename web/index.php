@@ -54,7 +54,7 @@ foreach ($client->parseEvents() as $event) {
                         //     );
                         // $test_result = $item['gsx$title']['$t'];
                         // array_push($result, $candidate);
-                    }
+                    // }
                 }
                 // $test_result = $keywords[0];
             }

@@ -41,7 +41,7 @@ foreach ($client->parseEvents() as $event) {
                     
                     // $keyword = iconv( "big5","UTF-8",  $keyword);
                     // $message['text'] = iconv( "big5","UTF-8",  $message['text']);
-                    $test_result = $keyword.$message['text'];
+                    // $test_result = $keyword.$message['text'];
                     if ($message['text'] == $keyword) {
                         $test_result = 'innnn';
                     }

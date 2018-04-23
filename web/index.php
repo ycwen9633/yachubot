@@ -37,24 +37,25 @@ foreach ($client->parseEvents() as $event) {
 
             foreach ($data['feed']['entry'] as $item) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
-                foreach ($keywords as $keyword) {
-                    if (mb_strpos($message['text'], $keyword) !== false) {
-                        $candidate = array(
-                            'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
-                            'title' => $item['gsx$title']['$t'],
-                            'text' => $item['gsx$title']['$t'],
-                            'actions' => array(
-                                array(
-                                    'type' => 'uri',
-                                    'label' => '查看詳情',
-                                    'uri' => $item['gsx$url']['$t'],
-                                    ),
-                                ),
-                            );
-                        $test_result = $item['gsx$title']['$t'];
-                        array_push($result, $candidate);
-                    }
-                }
+                // foreach ($keywords as $keyword) {
+                //     if (mb_strpos($message['text'], $keyword) !== false) {
+                //         $candidate = array(
+                //             'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
+                //             'title' => $item['gsx$title']['$t'],
+                //             'text' => $item['gsx$title']['$t'],
+                //             'actions' => array(
+                //                 array(
+                //                     'type' => 'uri',
+                //                     'label' => '查看詳情',
+                //                     'uri' => $item['gsx$url']['$t'],
+                //                     ),
+                //                 ),
+                //             );
+                //         $test_result = $item['gsx$title']['$t'];
+                //         array_push($result, $candidate);
+                //     }
+                // }
+                $test_result = $keywords[0];
             }
 
             switch ($message['type']) {

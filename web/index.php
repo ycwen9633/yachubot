@@ -42,8 +42,9 @@ foreach ($client->parseEvents() as $event) {
                     // $keyword = iconv( "big5","UTF-8",  $keyword);
                     // $message['text'] = iconv( "big5","UTF-8",  $message['text']);
                     // $test_result = $keyword.$message['text'];
-                    if ($message['text'] == $keyword) {
-                        $test_result = 'innnn';
+                    
+                    if (strpos($message['text'], $keyword) !== false) {
+                        $test_result = 'QQ';
                     }
                     // if (mb_strpos($message['text'], $keyword, 0, 'UTF8') !== false) {
                     //     // $candidate = array(

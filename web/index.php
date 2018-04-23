@@ -64,24 +64,24 @@ foreach ($client->parseEvents() as $event) {
                 }
             }
 
-            switch ($message['type']) {
-                case 'text':
-                    $m_message = $message['text'];
-                    if($m_message!="")
-                    {
-                        $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $m_message.$test_result
-                            )
-                        )
-                        ));
-                    }
-                    break;
+            // switch ($message['type']) {
+            //     case 'text':
+            //         $m_message = $message['text'];
+            //         if($m_message!="")
+            //         {
+            //             $client->replyMessage(array(
+            //             'replyToken' => $event['replyToken'],
+            //             'messages' => array(
+            //                 array(
+            //                     'type' => 'text',
+            //                     'text' => $m_message.$test_result
+            //                 )
+            //             )
+            //             ));
+            //         }
+            //         break;
                 
-            }
+            // }
 
             switch ($message['type']) {
                 case 'text':
@@ -91,14 +91,6 @@ foreach ($client->parseEvents() as $event) {
                             array(
                                 'type' => 'text',
                                 'text' => $message['text'].'等等我喔...',
-                            ),
-                            array(
-                                'type' => 'template',
-                                'altText' => '找到了！資料如下：',
-                                'template' => array(
-                                    'type' => 'carousel',
-                                    'columns' => $result,
-                                ),
                             ),
                             array(
                                 'type' => 'text',

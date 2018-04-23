@@ -39,7 +39,7 @@ foreach ($client->parseEvents() as $event) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
                     $test_result = $keyword;
-                    // if (mb_strpos($message['text'], $keyword) !== false) {
+                    if (mb_strpos($message['text'], $keyword) !== false) {
                         // $candidate = array(
                         //     'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
                         //     'title' => $item['gsx$title']['$t'],
@@ -52,9 +52,9 @@ foreach ($client->parseEvents() as $event) {
                         //             ),
                         //         ),
                         //     );
-                        // $test_result = $item['gsx$title']['$t'];
+                        $test_result = 'in';
                         // array_push($result, $candidate);
-                    // }
+                    }
                 }
                 // $test_result = $keywords[0];
             }

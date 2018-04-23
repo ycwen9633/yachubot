@@ -39,8 +39,8 @@ foreach ($client->parseEvents() as $event) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
                     
-                    $keyword = iconv( "big5","UTF-8",  $keyword);
-                    $message['text'] = iconv( "big5","UTF-8",  $message['text']);
+                    // $keyword = iconv( "big5","UTF-8",  $keyword);
+                    // $message['text'] = iconv( "big5","UTF-8",  $message['text']);
                     $test_result = $keyword.$message['text'];
                     // if (mb_strpos($message['text'], $keyword, 0, 'UTF8') !== false) {
                     //     // $candidate = array(

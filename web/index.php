@@ -105,6 +105,11 @@ foreach ($client->parseEvents() as $event) {
                                 'text' => '慢慢欣賞:)',
                             ),
                             array(
+                                'type' => 'message', // 類型 (訊息)
+                                'label' => 'Message example', // 標籤 2
+                                'text' => 'Message example' // 用戶發送文字
+                            ),
+                            array(
                                 'type' => 'sticker',
                                 'packageId' => '1',
                                 'stickerId' => '2',

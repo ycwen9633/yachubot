@@ -29,6 +29,25 @@ foreach ($client->parseEvents() as $event) {
         case 'message':
             $message = $event['message'];
 
+            switch ($message['type']) {
+                case 'text':
+                    $m_message = $message['text'];
+                    if($m_message!="")
+                    {
+                        $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'text',
+                                'text' => $m_message
+                            )
+                        )
+                        ));
+                    }
+                    break;
+                
+            }
+            
             $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tBG01g4WIaV_tgPmJ0cmh80y3pkC4E7QJdBsWTpQ-c4/od6/public/values?alt=json');
             $data = json_decode($json, true);
             $result = array();

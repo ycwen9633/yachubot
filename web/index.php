@@ -43,27 +43,25 @@ foreach ($client->parseEvents() as $event) {
                     // $message['text'] = iconv( "big5","UTF-8",  $message['text']);
                     // $test_result = $keyword.$message['text'];
                     
-                    if (strpos($message['text'], $keyword) !== false) {
-                        $test_result = 'QQ';
-                    }
-                    // if (mb_strpos($message['text'], $keyword, 0, 'UTF8') !== false) {
-                    //     // $candidate = array(
-                    //     //     'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
-                    //     //     'title' => $item['gsx$title']['$t'],
-                    //     //     'text' => $item['gsx$title']['$t'],
-                    //     //     'actions' => array(
-                    //     //         array(
-                    //     //             'type' => 'uri',
-                    //     //             'label' => '查看詳情',
-                    //     //             'uri' => $item['gsx$url']['$t'],
-                    //     //             ),
-                    //     //         ),
-                    //     //     );
-                    //     $test_result = 'in';
-                    //     // array_push($result, $candidate);
+                    // if (strpos($message['text'], $keyword) !== false) {
+                    //     $test_result = 'QQ';
                     // }
+                    if (strpos($message['text'], $keyword) !== false) {
+                        $candidate = array(
+                            'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
+                            'title' => $item['gsx$title']['$t'],
+                            'text' => $item['gsx$title']['$t'],
+                            'actions' => array(
+                                array(
+                                    'type' => 'uri',
+                                    'label' => '查看詳情',
+                                    'uri' => $item['gsx$url']['$t'],
+                                    ),
+                                ),
+                            );
+                        array_push($result, $candidate);
+                    }
                 }
-                // $test_result = $keywords[0];
             }
 
             switch ($message['type']) {
@@ -85,39 +83,39 @@ foreach ($client->parseEvents() as $event) {
                 
             }
 
-            // switch ($message['type']) {
-            //     case 'text':
-            //         $client->replyMessage(array(
-            //             'replyToken' => $event['replyToken'],
-            //             'messages' => array(
-            //                 array(
-            //                     'type' => 'text',
-            //                     'text' => $message['text'].'等等我喔...',
-            //                 ),
-            //                 array(
-            //                     'type' => 'template',
-            //                     'altText' => '找到了！資料如下：',
-            //                     'template' => array(
-            //                         'type' => 'carousel',
-            //                         'columns' => $result,
-            //                     ),
-            //                 ),
-            //                 array(
-            //                     'type' => 'text',
-            //                     'text' => '慢慢欣賞:)',
-            //                 ),
-            //                 array(
-            //                     'type' => 'sticker',
-            //                     'packageId' => '1',
-            //                     'stickerId' => '2',
-            //                 ),
-            //             ),
-            //         ));
-            //         break;
-            //     default:
-            //         error_log("Unsupporeted message type: " . $message['type']);
-            //         break;
-            // }
+            switch ($message['type']) {
+                case 'text':
+                    $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'text',
+                                'text' => $message['text'].'等等我喔...',
+                            ),
+                            array(
+                                'type' => 'template',
+                                'altText' => '找到了！資料如下：',
+                                'template' => array(
+                                    'type' => 'carousel',
+                                    'columns' => $result,
+                                ),
+                            ),
+                            array(
+                                'type' => 'text',
+                                'text' => '慢慢欣賞:)',
+                            ),
+                            array(
+                                'type' => 'sticker',
+                                'packageId' => '1',
+                                'stickerId' => '2',
+                            ),
+                        ),
+                    ));
+                    break;
+                default:
+                    error_log("Unsupporeted message type: " . $message['type']);
+                    break;
+            }
             break;
         default:
             error_log("Unsupporeted event type: " . $event['type']);

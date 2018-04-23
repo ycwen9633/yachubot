@@ -93,6 +93,14 @@ foreach ($client->parseEvents() as $event) {
                                 'text' => $message['text'].'等等我喔...',
                             ),
                             array(
+                                'type' => 'template',
+                                'altText' => '找到了！資料如下：',
+                                'template' => array(
+                                    'type' => 'carousel',
+                                    'columns' => $result,
+                                ),
+                            ),
+                            array(
                                 'type' => 'text',
                                 'text' => '慢慢欣賞:)',
                             ),

@@ -57,6 +57,12 @@ foreach ($client->parseEvents() as $event) {
                                     'label' => '查看詳情',
                                     'uri' => $item['gsx$url']['$t'],
                                     ),
+                                array(
+                                    'type' => 'message', // 類型 (訊息)
+                                    'label' => 'Message example', // 標籤 2
+                                    'text' => 'Message example' // 用戶發送文字
+                                    ),
+
                                 ),
                             );
                         array_push($result, $candidate);
@@ -103,11 +109,6 @@ foreach ($client->parseEvents() as $event) {
                             array(
                                 'type' => 'text',
                                 'text' => '慢慢欣賞:)',
-                            ),
-                            array(
-                                'type' => 'message', // 類型 (訊息)
-                                'label' => 'Message example', // 標籤 2
-                                'text' => 'Message example' // 用戶發送文字
                             ),
                             array(
                                 'type' => 'sticker',

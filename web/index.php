@@ -28,23 +28,64 @@ foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
+
+            $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tBG01g4WIaV_tgPmJ0cmh80y3pkC4E7QJdBsWTpQ-c4/od6/public/values?alt=json');
+            $data = json_decode($json, true);
+            $result = array();
+
+            foreach ($data['feed']['entry'] as $item) {
+                $keywords = explode(',', $item['gsx$keyword']['$t']);
+                foreach ($keywords as $keyword) {
+                    if (mb_strpos($message['text'], $keyword) !== false) {
+                        $candidate = array(
+                            'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
+                            'title' => $item['gsx$title']['$t'],
+                            'text' => $item['gsx$title']['$t'],
+                            'actions' => array(
+                                array(
+                                    'type' => 'uri',
+                                    'label' => '查看詳情',
+                                    'uri' => $item['gsx$url']['$t'],
+                                    ),
+                                ),
+                            );
+                        array_push($result, $candidate);
+                    }
+                }
+            }
+
             switch ($message['type']) {
                 case 'text':
-                	$m_message = $message['text'];
-                	if($m_message!="")
-                	{
-                		$client->replyMessage(array(
+                    $client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                'text' => $m_message.'123'
-                            )
-                        )
-                    	));
-                	}
+                                'text' => $message['text'].'等等我喔...',
+                            ),
+                            array(
+                                'type' => 'template',
+                                'altText' => '找到了！資料如下：',
+                                'template' => array(
+                                    'type' => 'carousel',
+                                    'columns' => $result,
+                                ),
+                            ),
+                            array(
+                                'type' => 'text',
+                                'text' => '慢慢欣賞:)',
+                            ),
+                            array(
+                                'type' => 'sticker',
+                                'packageId' => '1',
+                                'stickerId' => '2',
+                            ),
+                        ),
+                    ));
                     break;
-                
+                default:
+                    error_log("Unsupporeted message type: " . $message['type']);
+                    break;
             }
             break;
         default:

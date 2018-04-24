@@ -157,7 +157,7 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => '畢業專題製作＿第三名<br/>政大統計資料競賽＿進入決於賽<br/>華南Fintech創新競賽＿獲得與繁星科技合作機會<br/>政大資管系女籃隊長<br/>'
+                                    'text' => '畢業專題製作＿第三名\n政大統計資料競賽＿進入決於賽\n華南Fintech創新競賽＿獲得與繁星科技合作機會\n政大資管系女籃隊長'
                                     )
                                 )
                             ));

@@ -34,11 +34,53 @@ foreach ($client->parseEvents() as $event) {
             $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tBG01g4WIaV_tgPmJ0cmh80y3pkC4E7QJdBsWTpQ-c4/od6/public/values?alt=json');
             $data = json_decode($json, true);
             $result = array();
+            if ($message['text'] == '?' || $message['text'] == '？') {
+                $client->replyMessage(array(
+                    'replyToken' => $event['replyToken'],
+                    'messages' => array(
+                        array(
+                            'type' => 'template', // 訊息類型 (模板)
+                            'altText' => '選項', // 替代文字
+                            'template' => array(
+                                'type' => 'buttons', // 類型 (按鈕)
+                                // 'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
+                                'title' => '按下方按鈕可以快速對我提問喔:)',
+                                'text' => '更詳細的操作說明在記事本！', // 文字
+                                'actions' => array(
+                                    array(
+                                        'type' => 'message', 
+                                        'label' => '我想更了解你', 
+                                        'data' => '我想更了解你'
+                                    ),
+                                    array(
+                                        'type' => 'message',
+                                        'label' => '我想觀看你的作品', 
+                                        'text' => '我想觀看你的作品' 
+                                    ),array(
+                                        'type' => 'message', 
+                                        'label' => '我想知道你的興趣', 
+                                        'text' => '我想知道你的興趣' 
+                                    ),array(
+                                        'type' => 'message',
+                                        'label' => '我想觀看你的作品', 
+                                        'text' => '我想觀看你的作品'
+                                    ),
+                                    array(
+                                        'type' => 'uri',
+                                        'label' => 'Uri example',
+                                        'uri' => 'https://github.com/GoneTone/line-example-bot-php'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ));
+            }
 
             foreach ($data['feed']['entry'] as $item) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
-                    if (strpos($message['text'], $keyword) !== false) {
+                    if (strpos(strtolower($message['text']), $keyword) !== false) {
                         $candidate = array(
                             'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
                             'title' => $item['gsx$title']['$t'],

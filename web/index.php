@@ -120,7 +120,7 @@ foreach ($client->parseEvents() as $event) {
                                         'template' => array(
                                             'type' => 'buttons', // 類型 (按鈕)
                                             'thumbnailImageUrl' => 'https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg',
-                                            "imageAspectRatio": "square",
+                                            'imageAspectRatio' => 'square',
                                             'title' => '按下方按鈕可以快速問我問題:)', // 標題 <不一定需要>
                                             'text' => '更多操作說明在記事本哦', // 文字
                                             'actions' => array(

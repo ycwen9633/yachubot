@@ -61,9 +61,6 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
-            if (!$result) {
-                $test_result = 'false';
-            }
             switch ($message['type']) {
                 case 'text':
                     $client->replyMessage(array(
@@ -75,46 +72,46 @@ foreach ($client->parseEvents() as $event) {
                             )
                         )
                     ));
-                    // if (isset($result)) {
-                    //     $client->replyMessage(array(
-                    //         'replyToken' => $event['replyToken'],
-                    //         'messages' => array(
-                    //             array(
-                    //                 'type' => 'text',
-                    //                 'text' => $message['text'].'等等我喔...'.$test_result,
-                    //             ),
-                    //             array(
-                    //                 'type' => 'template',
-                    //                 'altText' => '找到了！資料如下：',
-                    //                 'template' => array(
-                    //                     'type' => 'carousel',
-                    //                     'columns' => $result,
-                    //                 ),
-                    //             ),
-                    //             array(
-                    //                 'type' => 'text',
-                    //                 'text' => '慢慢欣賞:)',
-                    //             ),
-                    //             array(
-                    //                 'type' => 'sticker',
-                    //                 'packageId' => '1',
-                    //                 'stickerId' => '2',
-                    //             ),
-                    //         ),
-                    //     ));
-                    // } else {
-                    //     if (strpos($message['text'], '興趣') !== false) {
-                    //         $client->replyMessage(array(
-                    //             'replyToken' => $event['replyToken'],
-                    //             'messages' => array(
-                    //             array(
-                    //                 'type' => 'text',
-                    //                 'text' => '打籃球打籃球打籃球'
-                    //                 )
-                    //             )
-                    //         ));
-                    //     }
-                    // }
+                    if ($result) {
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $message['text'].'等等我喔...'.$test_result,
+                                ),
+                                array(
+                                    'type' => 'template',
+                                    'altText' => '找到了！資料如下：',
+                                    'template' => array(
+                                        'type' => 'carousel',
+                                        'columns' => $result,
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '慢慢欣賞:)',
+                                ),
+                                array(
+                                    'type' => 'sticker',
+                                    'packageId' => '1',
+                                    'stickerId' => '2',
+                                ),
+                            ),
+                        ));
+                    } else {
+                        if (strpos($message['text'], '興趣') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '打籃球打籃球打籃球'
+                                    )
+                                )
+                            ));
+                        }
+                    }
                     
                     break;
                 default:

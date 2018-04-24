@@ -119,24 +119,24 @@ foreach ($client->parseEvents() as $event) {
                                         'altText' => 'Example buttons template', // 替代文字
                                         'template' => array(
                                             'type' => 'buttons', // 類型 (按鈕)
-                                            'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
-                                            'title' => 'Example Menu', // 標題 <不一定需要>
-                                            'text' => 'Please select', // 文字
+                                            // 'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
+                                            'title' => '按下方按鈕可以快速問我問題:)', // 標題 <不一定需要>
+                                            'text' => '更多操作說明在記事本哦', // 文字
                                             'actions' => array(
                                                 array(
-                                                    'type' => 'postback', // 類型 (回傳)
-                                                    'label' => 'Postback example', // 標籤 1
-                                                    'data' => 'action=buy&itemid=123' // 資料
+                                                    'type' => 'message',
+                                                    'label' => '我想要更了解你',
+                                                    'text' => '我想要更了解你' 
                                                 ),
                                                 array(
-                                                    'type' => 'message', // 類型 (訊息)
-                                                    'label' => 'Message example', // 標籤 2
-                                                    'text' => 'Message example' // 用戶發送文字
+                                                    'type' => 'message',
+                                                    'label' => '我想要觀看你的作品', 
+                                                    'text' => '我想要觀看你的作品'
                                                 ),
                                                 array(
-                                                    'type' => 'uri', // 類型 (連結)
-                                                    'label' => 'Uri example', // 標籤 3
-                                                    'uri' => 'https://github.com/GoneTone/line-example-bot-php' // 連結網址
+                                                    'type' => 'message', 
+                                                    'label' => '我想要知道你的興趣', 
+                                                    'text' => '我想要知道你的興趣' 
                                                 )
                                             )
                                         )

@@ -110,7 +110,7 @@ foreach ($client->parseEvents() as $event) {
                                         'label' => '問號問號'
                                         'text' => '?'
                                         )
-                                    )
+                                    
                                     // array(
                                     //     'type' => 'template', // 訊息類型 (模板)
                                     //     'altText' => '選項', // 替代文字

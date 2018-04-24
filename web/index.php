@@ -178,6 +178,25 @@ foreach ($client->parseEvents() as $event) {
                                 ),
                                 
                             ));
+                        } elseif (strpos($message['text'], '能力') !== false ||strpos($message['text'], '技能') !== false  ) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '前端：HTML,CSS,Javascript,Vue.js'
+                                    ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '後端：PHP,Java,R'
+                                    ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '語言能力：TOEIC 930'
+                                    ),
+                                ),
+                                
+                            ));
                         } elseif (strpos($message['text'], '實習經歷') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],

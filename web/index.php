@@ -49,12 +49,6 @@ foreach ($client->parseEvents() as $event) {
                                     'label' => '查看詳情',
                                     'uri' => $item['gsx$url']['$t'],
                                     ),
-                                array(
-                                    'type' => 'message', // 類型 (訊息)
-                                    'label' => '作品', // 標籤 2
-                                    'text' => '作品' // 用戶發送文字
-                                    ),
-
                                 ),
                             );
                         array_push($result, $candidate);
@@ -67,10 +61,6 @@ foreach ($client->parseEvents() as $event) {
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $message['text'].'等等我喔...'.$test_result,
-                                ),
                                 array(
                                     'type' => 'template',
                                     'altText' => '找到了！資料如下：',
@@ -97,32 +87,80 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => '打籃球打籃球打籃球'
+                                    'text' => '我最大的興趣是打籃球，高中時擔任籃球社社長，大學時擔任政大資管系女籃隊長，對籃球熱愛的程度不亞於男生，除了系上練球時間有空閒也會自主訓練，對於自己熱愛的事物非常執著！歡迎找我單挑（？'
                                     )
                                 )
                             ));
-                        } elseif (strpos($message['text'], '?') !== false) {
-                            // $client->replyMessage(array(
-                            //     'replyToken' => $event['replyToken'],
-                            //     'messages' => array(
-                            //     array(
-                            //         'type' => 'text',
-                            //         'text' => '???'
-                            //         )
-                            //     )
-                            // ));
+                        } elseif (strpos($message['text'], '個性') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '我是一個開朗外向的人，喜歡到處結交朋友，也喜歡和朋友一起說垃圾話，很好相處，相處過都說讚，同時也是一個閒不下來的人，會一直找事請給自己做，希望能在line實習讓自己生活更豐富<3'
+                                    )
+                                )
+                            ));
+                        } elseif (strpos($message['text'], '外表') !== false || strpos($message['text'], '外貌') !== false || strpos($message['text'], '外觀') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '擁有如熊大一般的膚色...不是很高的身高'
+                                    )
+                                )
+                            ));
+                        } elseif (strpos($message['text'], '實習') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
                                     array(
                                         'type' => 'template', // 訊息類型 (模板)
-                                        'altText' => 'Example buttons template', // 替代文字
+                                        'altText' => '你想知道哪段實習經歷？', // 替代文字
+                                        'template' => array(
+                                            'type' => 'buttons', // 類型 (按鈕)
+                                            'title' => '你想知道哪段實習經歷？', // 標題 <不一定需要>
+                                            'text' => '每一段工作經歷我都很珍惜投入，不論職務是甚麼都全力以赴，不同技能或是待人處事的態度都獲益良多', // 文字
+                                            'actions' => array(
+                                                array(
+                                                    'type' => 'message',
+                                                    'label' => '在哲煜科技擔任實習工程師',
+                                                    'text' => '在哲煜科技擔任實習工程師' 
+                                                ),
+                                                array(
+                                                    'type' => 'message',
+                                                    'label' => '在富邦人壽核心系統部門擔任實習生', 
+                                                    'text' => '在富邦人壽核心系統部門擔任實習生'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '在九元電子顧機台', 
+                                                    'text' => '在九元電子顧機台'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '在大馬小吃擔任櫃台', 
+                                                    'text' => '在大馬小吃擔任櫃台'
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ));
+                        } elseif (strpos($message['text'], '?') !== false || strpos($message['text'], '？') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        'type' => 'template', // 訊息類型 (模板)
+                                        'altText' => '快速問我問題吧！', // 替代文字
                                         'template' => array(
                                             'type' => 'buttons', // 類型 (按鈕)
                                             'thumbnailImageUrl' => 'https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg',
                                             'imageAspectRatio' => 'square',
                                             'title' => '按下方按鈕可以快速問我問題:)', // 標題 <不一定需要>
-                                            'text' => '更多操作說明在記事本哦', // 文字
+                                            'text' => '第一次提問會等待較久，先不要離開QQ，更多操作說明在記事本哦', // 文字
                                             'actions' => array(
                                                 array(
                                                     'type' => 'message',
@@ -136,8 +174,13 @@ foreach ($client->parseEvents() as $event) {
                                                 ),
                                                 array(
                                                     'type' => 'message', 
-                                                    'label' => '我想要知道你的興趣', 
-                                                    'text' => '我想要知道你的興趣' 
+                                                    'label' => '我想要知道你的實習經歷', 
+                                                    'text' => '我想要知道你的實習經歷'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '你為什麼想來Line實習', 
+                                                    'text' => '你為什麼想來Line實習'
                                                 )
                                             )
                                         )

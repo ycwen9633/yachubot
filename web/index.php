@@ -111,7 +111,7 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        }  elseif (strpos($message['text'], '哲煜科技') !== false) {
+                        } elseif (strpos($message['text'], '哲煜科技') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
@@ -121,7 +121,7 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        }   elseif (strpos($message['text'], '富邦人壽') !== false) {
+                        } elseif (strpos($message['text'], '富邦人壽') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
@@ -131,7 +131,7 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        }   elseif (strpos($message['text'], '久元電子') !== false) {
+                        } elseif (strpos($message['text'], '久元電子') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
@@ -141,13 +141,23 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        }   elseif (strpos($message['text'], '大馬小吃') !== false) {
+                        } elseif (strpos($message['text'], '大馬小吃') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
                                     'text' => '鄰近學校的餐廳，在尖峰時段非常忙碌，培養了我良好的危機處理以及應變的能力，期間內我不斷地提升自己的工作效能，讓出餐的流程更順暢、記得熟客點的品項，處事圓融的我也深受客人以及老闆的喜愛，面對不同的客人我能提供最貼合他們需求的服務。'
+                                    )
+                                )
+                            ));
+                        } elseif (strpos($message['text'], '比賽經歷') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '畢業專題製作＿第三名<br/>政大統計資料競賽＿進入決於賽<br/>華南Fintech創新競賽＿獲得與繁星科技合作機會<br/>政大資管系女籃隊長<br/>'
                                     )
                                 )
                             ));
@@ -175,8 +185,8 @@ foreach ($client->parseEvents() as $event) {
                                                 ),
                                                 array(
                                                     'type' => 'message', 
-                                                    'label' => '在九元電子顧機台', 
-                                                    'text' => '在九元電子顧機台'
+                                                    'label' => '在久元電子顧機台', 
+                                                    'text' => '在久元電子顧機台'
                                                 ),
                                                 array(
                                                     'type' => 'message', 

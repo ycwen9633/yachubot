@@ -102,52 +102,37 @@ foreach ($client->parseEvents() as $event) {
                                 )
                             ));
                         } elseif (strpos($message['text'], '?') !== false) {
-                            $client->replyMessage(array(
-                                'replyToken' => $event['replyToken'],
-                                'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => '???'
-                                    )
-                                )
-                            ));
                             // $client->replyMessage(array(
                             //     'replyToken' => $event['replyToken'],
                             //     'messages' => array(
-                            //         array(
-                            //             'type' => 'template', // 訊息類型 (模板)
-                            //             'altText' => '選項', // 替代文字
-                            //             'template' => array(
-                            //                 'type' => 'buttons', // 類型 (按鈕)
-                            //                 'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
-                            //                 'title' => '按下方按鈕可以快速對我提問喔:)',
-                            //                 'text' => '更詳細的操作說明在記事本！', // 文字
-                            //                 'actions' => array(
-                            //                     array(
-                            //                         'type' => 'message', 
-                            //                         'label' => '我想更了解你', 
-                            //                         'data' => '我想更了解你'
-                            //                     ),
-                            //                     array(
-                            //                         'type' => 'message',
-                            //                         'label' => '我想觀看你的作品', 
-                            //                         'text' => '我想觀看你的作品' 
-                            //                     ),
-                            //                     array(
-                            //                         'type' => 'message', 
-                            //                         'label' => '我想知道你的興趣', 
-                            //                         'text' => '我想知道你的興趣' 
-                            //                     ),
-                            //                     array(
-                            //                         'type' => 'message',
-                            //                         'label' => '我想觀看你的作品', 
-                            //                         'text' => '我想觀看你的作品'
-                            //                     )
-                            //                 )
-                            //             )
+                            //     array(
+                            //         'type' => 'text',
+                            //         'text' => '???'
                             //         )
                             //     )
                             // ));
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        'type' => 'template', // 訊息類型 (模板)
+                                        'altText' => '選項', // 替代文字
+                                        'template' => array(
+                                            'type' => 'buttons', // 類型 (按鈕)
+                                            'thumbnailImageUrl' => 'https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/19145911_1557695574254612_6333142876660853306_n.jpg?_nc_cat=0&oh=31f76b4b75f3d94b8d8e1165b7c289df&oe=5B5378BA', // 圖片網址 <不一定需要>
+                                            'title' => '按下方按鈕可以快速對我提問喔:)',
+                                            'text' => '更詳細的操作說明在記事本！', // 文字
+                                            'actions' => array(
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '我想更了解你', 
+                                                    'data' => '我想更了解你'
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ));
                         }
                     }
                     

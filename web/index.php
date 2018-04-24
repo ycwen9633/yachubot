@@ -51,8 +51,8 @@ foreach ($client->parseEvents() as $event) {
                                     ),
                                 array(
                                     'type' => 'message', // 類型 (訊息)
-                                    'label' => 'Message example', // 標籤 2
-                                    'text' => 'Message example' // 用戶發送文字
+                                    'label' => '作品', // 標籤 2
+                                    'text' => '作品' // 用戶發送文字
                                     ),
 
                                 ),
@@ -63,15 +63,6 @@ foreach ($client->parseEvents() as $event) {
             }
             switch ($message['type']) {
                 case 'text':
-                    $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                        array(
-                            'type' => 'text',
-                            'text' => $test_result
-                            )
-                        )
-                    ));
                     if ($result) {
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],

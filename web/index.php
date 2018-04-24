@@ -97,7 +97,7 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => '我是一個開朗外向的人，喜歡到處結交朋友，也喜歡和朋友一起說垃圾話，很好相處，相處過都說讚，同時也是一個閒不下來的人，會一直找事請給自己做，希望能在line實習讓自己生活更豐富<3'
+                                    'text' => '我是一個開朗外向的人，喜歡到處結交朋友，也喜歡和朋友一起說垃圾話，很好相處，相處過都說讚，同時也是一個閒不下來的人，會一直找事請給自己做，希望能在line實習讓自己生活更豐富(hee)'
                                     )
                                 )
                             ));
@@ -207,7 +207,7 @@ foreach ($client->parseEvents() as $event) {
                                         'template' => array(
                                             'type' => 'buttons', // 類型 (按鈕)
                                             'title' => '你想知道我哪方面的個人特質？', // 標題 <不一定需要>
-                                            'text' => '雖然透過Line@能初步了解我，但是更希望能加入Line實習團隊讓你們徹徹底底了解我(hee)', // 文字
+                                            'text' => '雖然透過Line@能初步了解我，但是更希望能加入Line實習團隊讓你們徹徹底底了解我', // 文字
                                             'actions' => array(
                                                 array(
                                                     'type' => 'message',
@@ -282,8 +282,8 @@ foreach ($client->parseEvents() as $event) {
                                             'type' => 'buttons', // 類型 (按鈕)
                                             'thumbnailImageUrl' => 'https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg',
                                             'imageAspectRatio' => 'square',
-                                            'title' => '按下方按鈕可以快速問我問題(moon grin)', // 標題 <不一定需要>
-                                            'text' => '第一次提問會等待較久，先不要離開QQ，更多操作說明在記事本哦', // 文字
+                                            'title' => '按下方按鈕可以快速問我問題:)', // 標題 <不一定需要>
+                                            'text' => '第一次提問會等待較久，先不要離開，我真的會回覆QQ，更多操作說明在記事本哦', // 文字
                                             'actions' => array(
                                                 array(
                                                     'type' => 'message',

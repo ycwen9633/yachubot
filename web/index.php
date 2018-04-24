@@ -212,8 +212,8 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text' => 'Line是目前台灣人主要溝通的APP，而現在Line除了能通訊外還有各種服務，對於Line不斷求創新、精進自己、推出更貼切使用者需求服務的精神，和我自己的理念相當，因此我很希望能和一群擁有相同抱負的同事和環境裡，發揮自己的價值！'
-                                    )
-                                
+                                    ),
+                                )
                             ));
                         }  elseif (strtolower(strpos($message['text']), '適合') !== false) {
                             $client->replyMessage(array(
@@ -222,8 +222,8 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text' => '我喜歡嘗試以及挑戰自己，因此上大學以來我參加了許多活動、社團、比賽，即便生活忙碌我仍然享受如此的過程，在不同的經歷中我各方面都有成長，實習帶給我的除了在技術上的成長外，更令我滿足的是自己尋找答案想出解法的過程，多元的生活亦讓我喜歡合作、以及與他人溝通，相信自己能在實習中貢獻一己之力。作品的部分由於畢業專案（活動交友 App）、大學作品(大馬小吃資料庫系統、電商平台產銷資訊系統)並無上線、MOMO TMS系統為實習公司財產因此無法展示。'
-                                    )
-                                
+                                    ),
+                                )
                             ));
                         } elseif (strpos($message['text'], '個人特質') !== false) {
                             $client->replyMessage(array(

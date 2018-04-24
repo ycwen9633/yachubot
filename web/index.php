@@ -157,15 +157,15 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => '畢業專題製作＿第三名（2016/09-2017/06）'
+                                    'text' => '畢業專題製作＿第三名（2016/09~2017/06）'
                                     ),
                                 array(
                                     'type' => 'text',
-                                    'text' => '政大統計資料競賽＿進入決於賽（2017/02-2017/05）'
+                                    'text' => '政大統計資料競賽＿進入決於賽（2017/02~2017/05）'
                                     ),
                                 array(
                                     'type' => 'text',
-                                    'text' => '華南Fintech創新競賽＿獲得與繁星科技合作機會（2016/10-2016/11）'
+                                    'text' => '華南Fintech創新競賽＿獲得與繁星科技合作機會（2016/10~2016/11）'
                                     ),
                                 array(
                                     'type' => 'text',
@@ -173,7 +173,7 @@ foreach ($client->parseEvents() as $event) {
                                     ),
                                 array(
                                     'type' => 'text',
-                                    'text' => '政大資管系女籃隊長（2015/09-2016/06）'
+                                    'text' => '政大資管系女籃隊長（2015/09~2016/06）'
                                     ),
                                 ),
                                 

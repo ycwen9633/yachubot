@@ -34,7 +34,7 @@ foreach ($client->parseEvents() as $event) {
             $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tBG01g4WIaV_tgPmJ0cmh80y3pkC4E7QJdBsWTpQ-c4/od6/public/values?alt=json');
             $data = json_decode($json, true);
             $result = array();
-            
+
             foreach ($data['feed']['entry'] as $item) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
@@ -101,7 +101,7 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        } elseif ($message['text'] == '?' || $message['text'] == '？') {
+                        } elseif (strpos($message['text'], '?') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
@@ -123,19 +123,16 @@ foreach ($client->parseEvents() as $event) {
                                                     'type' => 'message',
                                                     'label' => '我想觀看你的作品', 
                                                     'text' => '我想觀看你的作品' 
-                                                ),array(
+                                                ),
+                                                array(
                                                     'type' => 'message', 
                                                     'label' => '我想知道你的興趣', 
                                                     'text' => '我想知道你的興趣' 
-                                                ),array(
+                                                ),
+                                                array(
                                                     'type' => 'message',
                                                     'label' => '我想觀看你的作品', 
                                                     'text' => '我想觀看你的作品'
-                                                ),
-                                                array(
-                                                    'type' => 'uri',
-                                                    'label' => 'Uri example',
-                                                    'uri' => 'https://github.com/GoneTone/line-example-bot-php'
                                                 )
                                             )
                                         )

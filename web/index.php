@@ -28,7 +28,7 @@ foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
-            $test_result = 'trueee';
+            $test_result = 'ini';
             
 
             $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tBG01g4WIaV_tgPmJ0cmh80y3pkC4E7QJdBsWTpQ-c4/od6/public/values?alt=json');
@@ -61,51 +61,60 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
-            if (!isset($result)) {
-                $test_result = 'QQ';
+            if (isset($result)) {
+                $test_result = 'true';
             }
             switch ($message['type']) {
                 case 'text':
-                    if (isset($result)) {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $message['text'].'等等我喔...'.$test_result,
-                                ),
-                                array(
-                                    'type' => 'template',
-                                    'altText' => '找到了！資料如下：',
-                                    'template' => array(
-                                        'type' => 'carousel',
-                                        'columns' => $result,
-                                    ),
-                                ),
-                                array(
-                                    'type' => 'text',
-                                    'text' => '慢慢欣賞:)',
-                                ),
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => '1',
-                                    'stickerId' => '2',
-                                ),
-                            ),
-                        ));
-                    } else {
-                        if (strpos($message['text'], '興趣') !== false) {
-                            $client->replyMessage(array(
-                                'replyToken' => $event['replyToken'],
-                                'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => '打籃球打籃球打籃球'
-                                    )
-                                )
-                            ));
-                        }
-                    }
+                    $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                        array(
+                            'type' => 'text',
+                            'text' => $test_result
+                            )
+                        )
+                    ));
+                    // if (isset($result)) {
+                    //     $client->replyMessage(array(
+                    //         'replyToken' => $event['replyToken'],
+                    //         'messages' => array(
+                    //             array(
+                    //                 'type' => 'text',
+                    //                 'text' => $message['text'].'等等我喔...'.$test_result,
+                    //             ),
+                    //             array(
+                    //                 'type' => 'template',
+                    //                 'altText' => '找到了！資料如下：',
+                    //                 'template' => array(
+                    //                     'type' => 'carousel',
+                    //                     'columns' => $result,
+                    //                 ),
+                    //             ),
+                    //             array(
+                    //                 'type' => 'text',
+                    //                 'text' => '慢慢欣賞:)',
+                    //             ),
+                    //             array(
+                    //                 'type' => 'sticker',
+                    //                 'packageId' => '1',
+                    //                 'stickerId' => '2',
+                    //             ),
+                    //         ),
+                    //     ));
+                    // } else {
+                    //     if (strpos($message['text'], '興趣') !== false) {
+                    //         $client->replyMessage(array(
+                    //             'replyToken' => $event['replyToken'],
+                    //             'messages' => array(
+                    //             array(
+                    //                 'type' => 'text',
+                    //                 'text' => '打籃球打籃球打籃球'
+                    //                 )
+                    //             )
+                    //         ));
+                    //     }
+                    // }
                     
                     break;
                 default:

@@ -194,11 +194,11 @@ foreach ($client->parseEvents() as $event) {
                                     'type' => 'text',
                                     'text' => '使用過Git,Bitbucket,Github'
                                     ),
-                                ),array(
+                                array(
                                     'type' => 'text',
                                     'text' => '語言能力：TOEIC 930'
                                     ),
-                                ),array(
+                                array(
                                     'type' => 'text',
                                     'text' => '其他：SAS、PS、Flash'
                                     ),

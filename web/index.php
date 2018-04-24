@@ -157,7 +157,24 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => '1.畢業專題製作＿第三名 2.政大統計資料競賽＿進入決於賽 3.華南Fintech創新競賽＿獲得與繁星科技合作機會 4.政大資管系女籃隊長'
+                                    'text' => '畢業專題製作＿第三名（2016/09-2017/06）'
+                                    ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '政大統計資料競賽＿進入決於賽（2017/02-2017/05）'
+                                    ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '華南Fintech創新競賽＿獲得與繁星科技合作機會（2016/10-2016/11）'
+                                    ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => 'SAS玉山數據科學家競賽＿進入複賽（進行中）'
+                                    )
+                                ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '政大資管系女籃隊長（2015/09-2016/06）'
                                     )
                                 )
                             ));

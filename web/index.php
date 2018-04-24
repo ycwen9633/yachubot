@@ -111,7 +111,39 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        } elseif (strpos($message['text'], '實習') !== false) {
+                        } elseif (strpos($message['text'], '哲煜科技') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        'type' => 'template', // 訊息類型 (模板)
+                                        'altText' => '在哲煜科技的實習經歷', // 替代文字
+                                        'template' => array(
+                                            'type' => 'buttons', // 類型 (按鈕)
+                                            'text' => '公司主要以接案為主，開發過各式不同形象官網前後台以及TMS運輸管理系統，語言則以PHP為主，HTML、CSS、Javascript、Vue.js為輔，除了寫程式之外還需與專案經理溝通理解客戶需求。
+                                            可以點選下方文字看我其他經歷喔', // 文字
+                                            'actions' => array(
+                                                array(
+                                                    'type' => 'message',
+                                                    'label' => '在富邦人壽核心系統部門擔任實習生', 
+                                                    'text' => '在富邦人壽核心系統部門擔任實習生'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '在九元電子顧機台', 
+                                                    'text' => '在九元電子顧機台'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '在大馬小吃擔任櫃台', 
+                                                    'text' => '在大馬小吃擔任櫃台'
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ));
+                        }  elseif (strpos($message['text'], '實習經歷') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(

@@ -38,19 +38,11 @@ foreach ($client->parseEvents() as $event) {
             foreach ($data['feed']['entry'] as $item) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
                 foreach ($keywords as $keyword) {
-                    
-                    // $keyword = iconv( "big5","UTF-8",  $keyword);
-                    // $message['text'] = iconv( "big5","UTF-8",  $message['text']);
-                    // $test_result = $keyword.$message['text'];
-                    
-                    // if (strpos($message['text'], $keyword) !== false) {
-                    //     $test_result = 'QQ';
-                    // }
                     if (strpos($message['text'], $keyword) !== false) {
                         $candidate = array(
                             'thumbnailImageUrl' => $item['gsx$photourl']['$t'],
                             'title' => $item['gsx$title']['$t'],
-                            'text' => $item['gsx$title']['$t'],
+                            'text' => $item['gsx$description']['$t'],
                             'actions' => array(
                                 array(
                                     'type' => 'uri',
@@ -69,54 +61,49 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
-
-            // switch ($message['type']) {
-            //     case 'text':
-            //         $m_message = $message['text'];
-            //         if($m_message!="")
-            //         {
-            //             $client->replyMessage(array(
-            //             'replyToken' => $event['replyToken'],
-            //             'messages' => array(
-            //                 array(
-            //                     'type' => 'text',
-            //                     'text' => $m_message.$test_result
-            //                 )
-            //             )
-            //             ));
-            //         }
-            //         break;
-                
-            // }
-
             switch ($message['type']) {
                 case 'text':
-                    $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $message['text'].'等等我喔...',
-                            ),
-                            array(
-                                'type' => 'template',
-                                'altText' => '找到了！資料如下：',
-                                'template' => array(
-                                    'type' => 'carousel',
-                                    'columns' => $result,
+                    if (isset($result)) {
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $message['text'].'等等我喔...',
+                                ),
+                                array(
+                                    'type' => 'template',
+                                    'altText' => '找到了！資料如下：',
+                                    'template' => array(
+                                        'type' => 'carousel',
+                                        'columns' => $result,
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'text',
+                                    'text' => '慢慢欣賞:)',
+                                ),
+                                array(
+                                    'type' => 'sticker',
+                                    'packageId' => '1',
+                                    'stickerId' => '2',
                                 ),
                             ),
-                            array(
-                                'type' => 'text',
-                                'text' => '慢慢欣賞:)',
-                            ),
-                            array(
-                                'type' => 'sticker',
-                                'packageId' => '1',
-                                'stickerId' => '2',
-                            ),
-                        ),
-                    ));
+                        ));
+                    } else {
+                        if (strpos($message['text'], '興趣') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => '打籃球打籃球打籃球'
+                                    )
+                                )
+                            ));
+                        }
+                    }
+                    
                     break;
                 default:
                     error_log("Unsupporeted message type: " . $message['type']);

@@ -61,8 +61,8 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
-            if (isset($result)) {
-                $test_result = 'true';
+            if (!$result) {
+                $test_result = 'false';
             }
             switch ($message['type']) {
                 case 'text':

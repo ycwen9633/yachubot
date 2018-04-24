@@ -101,7 +101,7 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        } elseif (strpos($message['text'], '外表') !== false || strpos($message['text'], '外貌') !== false || strpos($message['text'], '外觀') !== false) {
+                        } elseif (strpos($message['text'], '外表') !== false || strpos($message['text'], '外貌') !== false || strpos($message['text'], '長怎樣') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
@@ -197,6 +197,43 @@ foreach ($client->parseEvents() as $event) {
                                 ),
                                 
                             ));
+                        } elseif (strpos($message['text'], '個人特質') !== false) {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        'type' => 'template', // 訊息類型 (模板)
+                                        'altText' => '你想知道我哪方面的個人特質？', // 替代文字
+                                        'template' => array(
+                                            'type' => 'buttons', // 類型 (按鈕)
+                                            'title' => '你想知道我哪方面的個人特質？', // 標題 <不一定需要>
+                                            'text' => '雖然透過Line@能初步了解我，但是更希望能加入Line實習團隊讓你們徹徹底底了解我(hee)', // 文字
+                                            'actions' => array(
+                                                array(
+                                                    'type' => 'message',
+                                                    'label' => '你的個性如何',
+                                                    'text' => '你的個性如何' 
+                                                ),
+                                                array(
+                                                    'type' => 'message',
+                                                    'label' => '你有什麼興趣', 
+                                                    'text' => '你有什麼興趣'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '你大概長怎樣', 
+                                                    'text' => '你大概長怎樣'
+                                                ),
+                                                array(
+                                                    'type' => 'message', 
+                                                    'label' => '你有什麼技能', 
+                                                    'text' => '你有什麼技能'
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ));
                         } elseif (strpos($message['text'], '實習經歷') !== false) {
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
@@ -245,7 +282,7 @@ foreach ($client->parseEvents() as $event) {
                                             'type' => 'buttons', // 類型 (按鈕)
                                             'thumbnailImageUrl' => 'https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg',
                                             'imageAspectRatio' => 'square',
-                                            'title' => '按下方按鈕可以快速問我問題:)', // 標題 <不一定需要>
+                                            'title' => '按下方按鈕可以快速問我問題(moon grin)', // 標題 <不一定需要>
                                             'text' => '第一次提問會等待較久，先不要離開QQ，更多操作說明在記事本哦', // 文字
                                             'actions' => array(
                                                 array(

@@ -170,13 +170,13 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text' => 'SAS玉山數據科學家競賽＿進入複賽（進行中）'
-                                    )
-                                ),
+                                    ),
                                 array(
                                     'type' => 'text',
                                     'text' => '政大資管系女籃隊長（2015/09-2016/06）'
-                                    )
-                                )
+                                    ),
+                                ),
+                                
                             ));
                         } elseif (strpos($message['text'], '實習經歷') !== false) {
                             $client->replyMessage(array(

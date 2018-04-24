@@ -61,6 +61,9 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
+            if (!isset($result)) {
+                $test_result = 'QQ';
+            }
             switch ($message['type']) {
                 case 'text':
                     if (isset($result)) {
@@ -69,7 +72,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => $message['text'].'等等我喔...',
+                                    'text' => $message['text'].'等等我喔...'.$test_result,
                                 ),
                                 array(
                                     'type' => 'template',
